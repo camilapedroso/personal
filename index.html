@@ -1,36 +1,547 @@
-Please redesign my personal website so it feels more like a personal brand and reflects my personality.
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Camila Pedroso | Personal Portfolio & Story</title>
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="[fonts.googleapis.com](https://fonts.googleapis.com)">
+    <link rel="preconnect" href="[fonts.gstatic.com](https://fonts.gstatic.com)" crossorigin>
+    <link href="[fonts.googleapis.com](https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;0,700;1,400&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap)" rel="stylesheet">
 
-I want the design to be clean, modern, feminine, elegant, creative, and entrepreneurial. I do not want it to look dark, plain, or like a generic corporate website.
+    <style>
+        :root {
+            --bg-color: #faf7f2;
+            --card-bg: #ffffff;
+            --text-primary: #332d29;
+            --text-secondary: #6e6661;
+            --accent-warm: #c87a61;
+            --accent-hover: #b2684c;
+            --accent-blush: #f4e8e2;
+            --accent-soft: #fbf0eb;
+            --border-color: #ebe3db;
+            --font-heading: 'Cormorant Garamond', Georgia, serif;
+            --font-body: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
+        }
 
-Please keep all of my current information, but organize it in a more beautiful and engaging way.
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
 
-About me:
+        body {
+            font-family: var(--font-body);
+            background-color: var(--bg-color);
+            color: var(--text-primary);
+            line-height: 1.75;
+            -webkit-font-smoothing: antialiased;
+        }
 
-My name is Camila Pedroso.
-I am 28 years old.
-I am from São Paulo, Brazil.
-I graduated in Advertising and Communications in Brazil.
-I currently live in New York.
-I am pursuing an MBA through a university in Los Angeles.
-I have always loved traveling, discovering new places, and learning about different cultures.
-I became an Au Pair in the United States and spent two years living with an American family.
-That experience was transformative because I learned a new language, met new people, experienced another culture, and developed a new perspective on life and my career.
-I love photography, communication, branding, creativity, travel, and fitness.
-My future goal is to combine my background in Advertising, my MBA studies, my international experience, and my passion for fitness to create my own business: a branding and business consulting service for personal trainers.
+        .container {
+            max-width: 860px;
+            margin: 0 auto;
+            padding: 3rem 1.5rem;
+        }
 
-For the visual style:
+        /* Hero / Header Section */
+        header.hero {
+            background-color: var(--card-bg);
+            border: 1px solid var(--border-color);
+            border-radius: 24px;
+            padding: 3.5rem 2.5rem;
+            margin-bottom: 2.5rem;
+            box-shadow: 0 10px 30px rgba(180, 150, 140, 0.05);
+            display: grid;
+            grid-template-columns: 1fr auto;
+            gap: 2.5rem;
+            align-items: center;
+        }
 
-Use a light background.
-Use soft neutral tones with subtle feminine accents.
-Make the design polished and elegant.
-Use clean typography and good spacing.
-Add rounded cards or sections.
-Create a strong hero section at the top.
-Add a place for a personal photo in the hero section.
-Make photography feel like part of the website identity.
-Add subtle visual details that make the website feel creative and personal.
-The final result should feel like the website of a modern female entrepreneur and creative professional.
+        .hero-text {
+            flex: 1;
+        }
 
-Please keep everything in one HTML file and provide the complete updated HTML code.
+        .location-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            background-color: var(--accent-blush);
+            color: var(--accent-warm);
+            font-size: 0.85rem;
+            font-weight: 600;
+            padding: 0.35rem 1rem;
+            border-radius: 50px;
+            margin-bottom: 1.25rem;
+            letter-spacing: 0.02em;
+        }
 
-Esse prompt já está bem mais direcionado para o estilo que você quer e ainda mantém o conteúdo dentro do que a tarefa pede.
+        .hero h1 {
+            font-family: var(--font-heading);
+            font-size: 3.25rem;
+            font-weight: 600;
+            color: var(--text-primary);
+            line-height: 1.1;
+            margin-bottom: 0.75rem;
+            letter-spacing: -0.01em;
+        }
+
+        .subtitle {
+            font-size: 1.15rem;
+            color: var(--accent-warm);
+            font-weight: 600;
+            margin-bottom: 1rem;
+            letter-spacing: 0.02em;
+        }
+
+        .hero p.intro-desc {
+            font-size: 1.05rem;
+            color: var(--text-secondary);
+            margin-bottom: 1.75rem;
+            max-width: 540px;
+        }
+
+        /* Photo Frame Placeholder */
+        .photo-frame {
+            width: 180px;
+            height: 220px;
+            border-radius: 100px 100px 20px 20px;
+            background: linear-gradient(135deg, var(--accent-blush) 0%, var(--border-color) 100%);
+            border: 4px solid var(--card-bg);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.04);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+            position: relative;
+            flex-shrink: 0;
+        }
+
+        .photo-frame img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .photo-placeholder {
+            text-align: center;
+            color: var(--accent-warm);
+            font-family: var(--font-heading);
+            font-size: 2.25rem;
+            font-weight: 600;
+            letter-spacing: 0.05em;
+        }
+
+        /* Buttons */
+        .btn-group {
+            display: flex;
+            gap: 1rem;
+            flex-wrap: wrap;
+        }
+
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            background-color: var(--accent-warm);
+            color: #ffffff;
+            padding: 0.85rem 1.8rem;
+            border-radius: 12px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 0.95rem;
+            transition: all 0.25s ease;
+            border: 1px solid var(--accent-warm);
+            box-shadow: 0 4px 12px rgba(200, 122, 97, 0.2);
+        }
+
+        .btn:hover {
+            background-color: var(--accent-hover);
+            border-color: var(--accent-hover);
+            transform: translateY(-2px);
+        }
+
+        .btn-secondary {
+            background-color: transparent;
+            color: var(--text-primary);
+            border-color: var(--border-color);
+            box-shadow: none;
+        }
+
+        .btn-secondary:hover {
+            background-color: var(--accent-blush);
+            border-color: var(--accent-warm);
+            color: var(--accent-warm);
+        }
+
+        /* Sections General */
+        section {
+            background-color: var(--card-bg);
+            border: 1px solid var(--border-color);
+            border-radius: 20px;
+            padding: 2.5rem;
+            margin-bottom: 2rem;
+            box-shadow: 0 6px 24px rgba(180, 150, 140, 0.03);
+        }
+
+        section h2 {
+            font-family: var(--font-heading);
+            font-size: 2.1rem;
+            color: var(--text-primary);
+            margin-bottom: 1.5rem;
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            letter-spacing: -0.01em;
+        }
+
+        section h2::after {
+            content: "";
+            flex-grow: 1;
+            height: 1px;
+            background-color: var(--border-color);
+        }
+
+        /* Story Text */
+        .story-text p {
+            color: var(--text-secondary);
+            font-size: 1.05rem;
+            margin-bottom: 1.25rem;
+        }
+
+        .story-text p:last-child {
+            margin-bottom: 0;
+        }
+
+        .quote-box {
+            font-family: var(--font-heading);
+            font-style: italic;
+            font-size: 1.35rem;
+            color: var(--accent-warm);
+            background-color: var(--accent-soft);
+            border-left: 3px solid var(--accent-warm);
+            padding: 1.25rem 1.5rem;
+            border-radius: 0 12px 12px 0;
+            margin: 1.75rem 0;
+            line-height: 1.5;
+        }
+
+        /* Cards & Grids */
+        .grid-2 {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 1.25rem;
+        }
+
+        .card {
+            background-color: var(--bg-color);
+            border: 1px solid var(--border-color);
+            padding: 1.5rem;
+            border-radius: 14px;
+            transition: border-color 0.2s ease;
+        }
+
+        .card:hover {
+            border-color: var(--accent-warm);
+        }
+
+        .card-tag {
+            font-size: 0.8rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            color: var(--accent-warm);
+            letter-spacing: 0.05em;
+            margin-bottom: 0.4rem;
+        }
+
+        .card h3 {
+            font-size: 1.15rem;
+            font-weight: 600;
+            color: var(--text-primary);
+            margin-bottom: 0.5rem;
+        }
+
+        .card p {
+            font-size: 0.95rem;
+            color: var(--text-secondary);
+        }
+
+        /* Interests Badges */
+        .interests-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(170px, 1fr));
+            gap: 1rem;
+        }
+
+        .interest-item {
+            background-color: var(--bg-color);
+            border: 1px solid var(--border-color);
+            padding: 1.25rem 1rem;
+            border-radius: 14px;
+            text-align: center;
+            transition: all 0.2s ease;
+        }
+
+        .interest-item:hover {
+            transform: translateY(-2px);
+            background-color: var(--accent-soft);
+            border-color: var(--accent-warm);
+        }
+
+        .interest-icon {
+            font-size: 1.6rem;
+            margin-bottom: 0.5rem;
+            display: block;
+        }
+
+        .interest-item h4 {
+            font-size: 0.95rem;
+            font-weight: 600;
+            color: var(--text-primary);
+        }
+
+        /* Future Goals Highlight Card */
+        .future-goals-card {
+            background: linear-gradient(135deg, #ffffff 0%, var(--accent-soft) 100%);
+            border: 1px solid rgba(200, 122, 97, 0.3);
+        }
+
+        .future-goals-card h3 {
+            font-family: var(--font-heading);
+            font-size: 1.6rem;
+            color: var(--accent-warm);
+            margin-bottom: 0.75rem;
+        }
+
+        /* Contact Section */
+        .contact-box {
+            text-align: center;
+            padding: 1rem 0;
+        }
+
+        .contact-box p {
+            color: var(--text-secondary);
+            font-size: 1.05rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .contact-email {
+            font-family: var(--font-heading);
+            font-size: 1.75rem;
+            color: var(--accent-warm);
+            text-decoration: none;
+            font-weight: 600;
+            transition: color 0.2s ease;
+            display: inline-block;
+            margin-bottom: 1.5rem;
+        }
+
+        .contact-email:hover {
+            color: var(--accent-hover);
+            text-decoration: underline;
+        }
+
+        /* Footer */
+        footer {
+            text-align: center;
+            padding: 2rem 0;
+            font-size: 0.875rem;
+            color: var(--text-secondary);
+        }
+
+        /* Responsive Design */
+        @media (max-width: 720px) {
+            header.hero {
+                grid-template-columns: 1fr;
+                text-align: center;
+                padding: 2.5rem 1.5rem;
+                gap: 1.75rem;
+            }
+
+            .hero-text {
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .photo-frame {
+                margin: 0 auto;
+            }
+
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+
+            section {
+                padding: 1.75rem 1.25rem;
+            }
+
+            .btn-group {
+                justify-content: center;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+
+        <!-- Home / Hero Section -->
+        <header class="hero" id="home">
+            <div class="hero-text">
+                <div class="location-badge">
+                    📍 São Paulo, Brazil → New York
+                </div>
+                <h1>Camila Pedroso</h1>
+                <div class="subtitle">Advertising Professional • MBA Student • Creative Communicator</div>
+                <p class="intro-desc">
+                    A story-driven strategist combining advertising expertise, global perspectives, and continuous learning to build purposeful personal and professional brands.
+                </p>
+                <div class="btn-group">
+                    <a href="mailto:[PUT MY EMAIL HERE]" class="btn">Contact Me</a>
+                    <a href="#story" class="btn btn-secondary">Read My Story</a>
+                </div>
+            </div>
+
+            <!-- Personal Photo Space (Displays monogram placeholder or user photo) -->
+            <div class="photo-frame">
+                <!-- To add your own photo, uncomment the line below and replace 'your-photo.jpg' with your photo path -->
+                <!-- <img src="your-photo.jpg" alt="Camila Pedroso"> -->
+                <div class="photo-placeholder">CP</div>
+            </div>
+        </header>
+
+        <!-- About Me / My Story Section -->
+        <section id="story">
+            <h2>My Story</h2>
+            <div class="story-text">
+                <p>
+                    I am 28 years old, born and raised in São Paulo, Brazil, where I completed my Bachelor’s degree in Advertising and Communications. From an early age, I felt drawn to communication, visual arts, photography, and the beauty of discovering new places and cultures.
+                </p>
+                <p>
+                    My desire to explore the world and step outside my comfort zone led me to move to the United States as an Au Pair. For two years, I lived with an American family—a deeply transformative experience that became a cornerstone of both my personal maturity and professional perspective.
+                </p>
+
+                <div class="quote-box">
+                    "Living abroad allowed me to learn a new language, navigate a new culture, and become truly independent. It changed not only how I approach my career, but also what I want for my life and future."
+                </div>
+
+                <p>
+                    Today, living in New York and continuing my education, I bring this global mindset, adaptability, and personal growth into every creative and strategic project I undertake.
+                </p>
+            </div>
+        </section>
+
+        <!-- Education Section -->
+        <section id="education">
+            <h2>Education</h2>
+            <div class="grid-2">
+                <div class="card">
+                    <div class="card-tag">Currently Pursuing</div>
+                    <h3>Master of Business Administration (MBA)</h3>
+                    <p>University in Los Angeles, California</p>
+                    <p style="margin-top: 0.5rem; font-size: 0.875rem;">Focusing on strategic business management, brand growth, and leadership development.</p>
+                </div>
+                <div class="card">
+                    <div class="card-tag">Completed</div>
+                    <h3>Bachelor's Degree in Advertising & Communications</h3>
+                    <p>Graduated in Brazil</p>
+                    <p style="margin-top: 0.5rem; font-size: 0.875rem;">Foundational studies in strategic communication, campaign creation, planning, and brand positioning.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Professional Background Section -->
+        <section id="experience">
+            <h2>Professional Background</h2>
+            <div class="story-text">
+                <p>
+                    My professional background spans advertising, communication, social media strategy, strategic planning, and event coordination. Through my academic training and hands-on projects, I have developed a strong foundation in crafting compelling narratives and structuring targeted campaigns.
+                </p>
+            </div>
+            <div class="grid-2" style="margin-top: 1.25rem;">
+                <div class="card">
+                    <h3>Core Expertise</h3>
+                    <p>Advertising, strategic planning, social media content development, and creative event coordination.</p>
+                </div>
+                <div class="card">
+                    <h3>Global Perspective & Soft Skills</h3>
+                    <p>High adaptability, cross-cultural communication, independence, problem-solving, and empathetic leadership gained through international living.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Interests Section -->
+        <section id="interests">
+            <h2>Passions & Interests</h2>
+            <div class="interests-grid">
+                <div class="interest-item">
+                    <span class="interest-icon">📷</span>
+                    <h4>Photography</h4>
+                </div>
+                <div class="interest-item">
+                    <span class="interest-icon">✈️</span>
+                    <h4>Travel</h4>
+                </div>
+                <div class="interest-item">
+                    <span class="interest-icon">💬</span>
+                    <h4>Communication</h4>
+                </div>
+                <div class="interest-item">
+                    <span class="interest-icon">✨</span>
+                    <h4>Branding</h4>
+                </div>
+                <div class="interest-item">
+                    <span class="interest-icon">🏋️‍♀️</span>
+                    <h4>Fitness</h4>
+                </div>
+                <div class="interest-item">
+                    <span class="interest-icon">🌍</span>
+                    <h4>Different Cultures</h4>
+                </div>
+                <div class="interest-item" style="grid-column: span 2;">
+                    <span class="interest-icon">🌱</span>
+                    <h4>Personal & Professional Growth</h4>
+                </div>
+            </div>
+        </section>
+
+        <!-- Future Goals Section -->
+        <section id="future-goals" class="future-goals-card">
+            <h2>Future Vision</h2>
+            <h3>Entrepreneurial Aspirations in Fitness Branding</h3>
+            <div class="story-text">
+                <p>
+                    During my time living in the United States, fitness and wellness became a meaningful interest in my daily life. Experiencing the discipline and positive impact of personal training inspired a clear long-term career goal.
+                </p>
+                <p>
+                    <strong>Future Entrepreneurial Goal:</strong> In the future, I aim to combine my advertising background, MBA education, international experience, and passion for fitness to build my own business—a specialized branding, communication, and business consulting practice for personal trainers.
+                </p>
+                <p style="font-size: 0.95rem; font-style: italic; opacity: 0.9; margin-top: 0.5rem;">
+                    *Note: This represents a future entrepreneurial vision currently in development as part of my academic and career roadmap.
+                </p>
+            </div>
+        </section>
+
+        <!-- Contact Section -->
+        <section id="contact">
+            <h2>Contact</h2>
+            <div class="contact-box">
+                <p>I am always open to new connections, professional conversations, and collaborative opportunities. Feel free to reach out directly via email:</p>
+                <a href="mailto:[PUT MY EMAIL HERE]" class="contact-email">[PUT MY EMAIL HERE]</a>
+                <div class="btn-group" style="justify-content: center;">
+                    <a href="mailto:[PUT MY EMAIL HERE]" class="btn">Send an Email</a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Footer -->
+        <footer>
+            <p>&copy; Camila Pedroso. Designed for MBA Personal Portfolio & Strategic Communication.</p>
+        </footer>
+
+    </div>
+
+</body>
+</html>
